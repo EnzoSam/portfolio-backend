@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.portfolio.same.portfoliobackend.controller;
 
 import com.portfolio.same.portfoliobackend.model.Person;
@@ -38,7 +34,7 @@ public class PortfolioController {
         return person;
     }    
     
-    @PostMapping("/api/portfolio")
+    @PostMapping("/api/person/save")
     public void savePerson(@RequestBody Person person)
     {
         service.savePerson(person);

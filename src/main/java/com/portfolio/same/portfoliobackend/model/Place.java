@@ -4,18 +4,17 @@
  */
 package com.portfolio.same.portfoliobackend.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import java.util.Date;
+import javax.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@MappedSuperclass
-public class PersistibleObject {
+@Entity
+public class Place extends PersistibleObject{
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    protected long id;
+    String name;
+    String description;
+    String image;
+    String web;
 }
