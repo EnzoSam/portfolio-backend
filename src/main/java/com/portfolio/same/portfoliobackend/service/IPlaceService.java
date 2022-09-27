@@ -5,6 +5,7 @@
 package com.portfolio.same.portfoliobackend.service;
 
 import com.portfolio.same.portfoliobackend.model.Place;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,8 @@ import com.portfolio.same.portfoliobackend.model.Place;
  */
 public interface IPlaceService {
     
+    public Place getPlace(long id);
+    public List<Place> getPlaces();
+    public void save(Place place);
+    public void delete(long id);
 }

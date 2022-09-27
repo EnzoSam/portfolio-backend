@@ -16,4 +16,22 @@ public class PlaceService implements IPlaceService{
     @Autowired
     public PlaceRepository repository;
     
+    public Place getPlace(long id)
+    {
+        return repository.findById(id).orElse(null);
+    }
+    
+    public List<Place> getPlaces()
+    {
+        return repository.findAll();
+    }
+    
+    public void save(Place place){
+        repository.save(place);
+    }
+    
+    public void delete(long id)
+    {
+        repository.deleteById(id);
+    }
 }
