@@ -4,34 +4,28 @@
  */
 package com.portfolio.same.portfoliobackend.service;
 
+import com.portfolio.same.portfoliobackend.model.Milestone;
 import com.portfolio.same.portfoliobackend.model.Person;
-import com.portfolio.same.portfoliobackend.repository.PersonaRepository;
+import com.portfolio.same.portfoliobackend.model.Portfolio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PortfolioService implements IPortfolioService{
- 
+public class PortfolioService implements IPortfolioService {
+
     @Autowired
-    public PersonaRepository repository;
-    
-    @Override
-     public Person getPortfolioPerson() throws Exception 
-     {
-         List<Person> list = repository.findAll();
-         if(list.size() > 1)
-             throw new Exception("Solo puede haber una persona definida");
-         if(list.size() == 1)
-             return list.get(0);
-         else
-             return new Person();
-     }
-     
-    @Override
-     public Person savePerson(Person person)
-     {         
-         return repository.save(person);
-     }
-    
+    private IPersonaService personService;
+    @Autowired
+    private IMilestoneService milestoneService;
+
+    public Portfolio getPortfolio() throws Exception {
+        
+        Portfolio portfolio = new Portfolio();
+        portfolio.setPerson(personService.getPerson());
+        portfolio.setEducations(milestoneService.findByType(Milestone.TYPE_EDUCATION));
+        portfolio.setExperiences(milestoneService.findByType(Milestone.TYPE_LABORAL_EXPERIENCE));
+
+        return portfolio;
+    }
 }

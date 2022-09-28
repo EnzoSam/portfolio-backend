@@ -1,9 +1,8 @@
 package com.portfolio.same.portfoliobackend.controller;
 
 import com.portfolio.same.portfoliobackend.model.Person;
-import com.portfolio.same.portfoliobackend.model.Portfolio;
 import com.portfolio.same.portfoliobackend.model.User;
-import com.portfolio.same.portfoliobackend.service.IPortfolioService;
+import com.portfolio.same.portfoliobackend.service.IPersonaService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,28 +15,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class PortfolioController {
+public class PersonaController {
     
     @Autowired
-    private IPortfolioService service;
+    private IPersonaService service;
     
-    @GetMapping("/api/portfolio")
+    @GetMapping("/api/person")
     @ResponseBody
-    public Portfolio getPortfolio()
+    public Person getPerson()
     {
-        Portfolio portfolio = null;
+        Person person = null;
         try {
-            portfolio = service.getPortfolio();
+            person = service.getPerson();
         } catch (Exception ex) {
-            Logger.getLogger(PortfolioController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PersonaController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return portfolio;
+        return person;
     }    
     
-    @PostMapping("/api/login")
-    public boolean login(@RequestBody User user)
+    @PostMapping("/api/person/save")
+    public void savePerson(@RequestBody Person person)
     {
-        return "enzo".equals(user.getName()) && "password".equals(user.getPassword());
+        service.save(person);
     }
+    
 }

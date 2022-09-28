@@ -4,13 +4,14 @@
  */
 package com.portfolio.same.portfoliobackend.service;
 
-import com.portfolio.same.portfoliobackend.model.Portfolio;
+import com.portfolio.same.portfoliobackend.model.Person;
 
 /**
  *
  * @author enzos
  */
-public interface IPortfolioService {
+public interface IPersonaService {
     
-    public Portfolio getPortfolio() throws Exception;
+    public Person getPerson() throws Exception;
+    public Person save(Person person);
 }
