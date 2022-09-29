@@ -4,11 +4,14 @@
  */
 package com.portfolio.same.portfoliobackend.controller;
 
-import com.portfolio.same.portfoliobackend.model.User;
 import com.portfolio.same.portfoliobackend.util.FileUtils;
 import java.io.IOException;
+import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,10 +25,11 @@ public class FileController {
     @PostMapping("/api/upload")
      @ResponseBody
     public String uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {
-        
+                              
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         FileUtils.saveFile("images", fileName, multipartFile);
         
         return  "{\"fileName\":\"" + fileName+ "\"}";
     }    
+  
 }
