@@ -4,16 +4,17 @@
  */
 package com.portfolio.same.portfoliobackend.model;
 
-import java.util.List;
+import java.util.Date;
+import javax.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class Portfolio {
+@Entity
+public class Contact extends PersistibleObject{
     
-    Person person;
-    List<Milestone> educations;
-    List<Milestone> experiences;
-    List<Skill> skills;
-    List<Contact> contacts;
+    String name;
+    String image;
+    String contact;
+    String type;
 }

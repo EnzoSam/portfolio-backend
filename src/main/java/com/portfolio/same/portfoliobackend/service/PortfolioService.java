@@ -17,7 +17,11 @@ public class PortfolioService implements IPortfolioService {
     @Autowired
     private IPersonaService personService;
     @Autowired
-    private IMilestoneService milestoneService;
+    private IMilestoneService milestoneService;    
+    @Autowired
+    private ISkillService skillService;
+    @Autowired
+    private IContactService contactService;    
 
     public Portfolio getPortfolio() throws Exception {
         
@@ -25,6 +29,8 @@ public class PortfolioService implements IPortfolioService {
         portfolio.setPerson(personService.getPerson());
         portfolio.setEducations(milestoneService.findByType(Milestone.TYPE_EDUCATION));
         portfolio.setExperiences(milestoneService.findByType(Milestone.TYPE_LABORAL_EXPERIENCE));
+        portfolio.setContacts(contactService.getContacts());
+        portfolio.setSkills(skillService.getSkills());
 
         return portfolio;
     }
