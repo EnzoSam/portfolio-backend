@@ -24,4 +24,5 @@ public class Person extends PersistibleObject{
     String about;
     String address;
     String profileImage;
+    String profession;
 }

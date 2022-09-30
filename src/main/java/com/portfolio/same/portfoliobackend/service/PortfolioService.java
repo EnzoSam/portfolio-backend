@@ -29,6 +29,7 @@ public class PortfolioService implements IPortfolioService {
         portfolio.setPerson(personService.getPerson());
         portfolio.setEducations(milestoneService.findByType(Milestone.TYPE_EDUCATION));
         portfolio.setExperiences(milestoneService.findByType(Milestone.TYPE_LABORAL_EXPERIENCE));
+        portfolio.setProjects(milestoneService.findByType(Milestone.TYPE_PROJECT));
         portfolio.setContacts(contactService.getContacts());
         portfolio.setSkills(skillService.getSkills());
 

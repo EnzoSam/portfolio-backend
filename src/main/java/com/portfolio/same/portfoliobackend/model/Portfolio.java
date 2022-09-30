@@ -16,4 +16,5 @@ public class Portfolio {
     List<Milestone> experiences;
     List<Skill> skills;
     List<Contact> contacts;
+    List<Milestone> projects;
 }

@@ -16,6 +16,7 @@ public class Milestone  extends PersistibleObject{
     
     public static final String TYPE_EDUCATION = "EDUCATION";
     public static final String TYPE_LABORAL_EXPERIENCE = "EXPERIENCE";
+    public static final String TYPE_PROJECT = "PROJECT";
     
     @ManyToOne
     Place place;
@@ -24,4 +25,5 @@ public class Milestone  extends PersistibleObject{
     String name;
     String description;
     String type;
+    String image;
 }

@@ -16,5 +16,6 @@ public class Place extends PersistibleObject{
     String name;
     String description;
     String image;
+    String address;
     String web;
 }
