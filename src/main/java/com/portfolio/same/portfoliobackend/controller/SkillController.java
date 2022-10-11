@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,6 +57,7 @@ public class SkillController {
     } 
     
     @PostMapping("/api/skill/save")
+    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Skill skill)
     {
         if(skill != null)
@@ -69,6 +71,7 @@ public class SkillController {
     }    
     
     @DeleteMapping("/api/skill/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable Long id)
     {
         service.delete(id);

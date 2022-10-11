@@ -21,7 +21,7 @@ public class PortfolioController {
     @Autowired
     private IPortfolioService service;
     
-    @GetMapping("/api/portfolio")
+    @GetMapping("/api/auth/portfolio")
     @ResponseBody
     public Portfolio getPortfolio()
     {
@@ -35,9 +35,4 @@ public class PortfolioController {
         return portfolio;
     }    
     
-    @PostMapping("/api/login")
-    public boolean login(@RequestBody User user)
-    {
-        return "enzo".equals(user.getName()) && "password".equals(user.getPassword());
-    }
 }

@@ -4,14 +4,13 @@
  */
 package com.portfolio.same.portfoliobackend.controller;
 
-import com.portfolio.same.portfoliobackend.model.Milestone;
 import com.portfolio.same.portfoliobackend.model.Place;
-import com.portfolio.same.portfoliobackend.service.IMilestoneService;
 import com.portfolio.same.portfoliobackend.service.IPlaceService;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +57,7 @@ public class PlaceController {
     } 
     
     @PostMapping("/api/place/save")
+    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Place place)
     {
         if(place != null)
@@ -71,6 +71,7 @@ public class PlaceController {
     }    
     
     @DeleteMapping("/api/place/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")    
     public void delete(@PathVariable Long id)
     {
         service.delete(id);

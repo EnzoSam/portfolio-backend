@@ -8,6 +8,7 @@ import com.portfolio.same.portfoliobackend.util.FileUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class FileController {
     
     @PostMapping("/api/upload")
      @ResponseBody
+     @PreAuthorize("hasRole('ADMIN')")
     public String uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {
                               
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
