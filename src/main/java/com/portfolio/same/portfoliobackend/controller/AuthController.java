@@ -45,7 +45,7 @@ public class AuthController {
     
     @PostMapping("/api/auth/registro")
     public ResponseEntity<?> nuevo(@RequestBody User user, BindingResult bindingResult){
-        
+                
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Message("campos vacíos o email inválido"), HttpStatus.BAD_REQUEST);
        

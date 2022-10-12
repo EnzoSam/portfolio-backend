@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,10 +21,16 @@ import lombok.Setter;
 @Entity
 public class Person extends PersistibleObject{
     
+    @NotNull
+    @NotBlank
     String name;
+    @NotNull
+    @NotBlank
     String lastName;
     String about;
     String address;
     String profileImage;
+    @NotNull
+    @NotBlank    
     String profession;
 }

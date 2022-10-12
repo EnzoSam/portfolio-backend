@@ -7,6 +7,8 @@ package com.portfolio.same.portfoliobackend.model;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +16,8 @@ import lombok.Setter;
 @Entity
 public class Skill extends PersistibleObject{
     
+    @NotNull
+    @NotBlank(message = "Nombre es requerido")
     String name;
     int level;
     String image;

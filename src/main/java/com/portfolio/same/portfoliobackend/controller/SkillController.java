@@ -4,13 +4,20 @@
  */
 package com.portfolio.same.portfoliobackend.controller;
 
+import com.portfolio.same.portfoliobackend.dto.Message;
 import com.portfolio.same.portfoliobackend.model.Skill;
 import com.portfolio.same.portfoliobackend.service.ISkillService;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@Validated
 public class SkillController {
    @Autowired
      private ISkillService service;
@@ -58,16 +66,10 @@ public class SkillController {
     
     @PostMapping("/api/skill/save")
     @PreAuthorize("hasRole('ADMIN')")
-    public void save(@RequestBody Skill skill)
-    {
-        if(skill != null)
-        {
-            service.save(skill);
-        }
-        else
-        {
-            System.out.println("Skill nula");
-        }
+    public ResponseEntity save(@RequestBody @Valid Skill skill)
+    {       
+        service.save(skill);
+        return ResponseEntity.ok(skill);
     }    
     
     @DeleteMapping("/api/skill/delete/{id}")

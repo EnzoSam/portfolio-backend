@@ -32,8 +32,6 @@ public class JwtProvider {
 
     public String getNombreUsuarioFromToken(String token){
 
-         var o = Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
-         System.out.println(o.getBody());
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
 
