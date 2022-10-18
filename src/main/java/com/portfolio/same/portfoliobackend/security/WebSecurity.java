@@ -77,7 +77,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Bean   
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://portfolio-fb9ed.web.app")); //or add * to allow all origins
+        configuration.setAllowedOrigins(Arrays.asList("https://portfolio-fb9ed.web.app/")); //or add * to allow all origins
         configuration.setAllowCredentials(true);
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")); //to set allowed http methods
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
