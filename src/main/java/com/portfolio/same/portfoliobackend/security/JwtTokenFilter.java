@@ -29,6 +29,15 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {
         try {
+            
+            
+
+            res.setHeader("Access-Control-Allow-Origin", "https://portfolio-fb9ed.web.app");
+            res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+            res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
+            res.setHeader("Access-Control-Max-Age", "86400");
+          
                                    
             String token = getToken(req);
             
