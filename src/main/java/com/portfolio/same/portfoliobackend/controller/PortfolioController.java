@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = {"https://portfolio-fb9ed.web.app/"})
+@CrossOrigin(origins = {"https://portfolio-fb9ed.web.app"})
 @RestController
 public class PortfolioController {
     
