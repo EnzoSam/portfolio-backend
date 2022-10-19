@@ -18,10 +18,12 @@ public class PortfolioBackendApplication {
             return new WebMvcConfigurer() {
                     @Override
                     public void addCorsMappings(CorsRegistry registry) {
+                        
+                        System.out.println("cooooooooooooooooooooors");
                             registry.addMapping("/**")
                                     .allowedOrigins("https://portfolio-fb9ed.web.app")
                                     .allowedMethods("*")
-                                    .allowedHeaders("*");;
+                                    .allowedHeaders("*");
                     }
             };
 	}        
