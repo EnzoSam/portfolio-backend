@@ -34,7 +34,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
                             registry.addMapping("/**")
-                                    .allowedOrigins("https://portfolio-fb9ed.web.app")
+                                    .allowedOrigins("**")
                                     .allowedMethods("*")
                                     .allowedHeaders("*");        
     }    
