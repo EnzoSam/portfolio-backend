@@ -73,14 +73,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.headers()                               
-                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "*"))
-                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "POST, GET"))
-                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Max-Age", "3600"))
-                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
-                .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers",
-                        "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization"));
-
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
