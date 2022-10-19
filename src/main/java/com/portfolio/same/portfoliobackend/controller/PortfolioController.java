@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@CrossOrigin(origins = {"https://portfolio-fb9ed.firebaseapp.com","https://portfolio-fb9ed.web.app"})
 public class PortfolioController {
     
     @Autowired
