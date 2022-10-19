@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
  
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -28,4 +29,13 @@ public class MvcConfig implements WebMvcConfigurer {
          
         registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
     }
+    
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+                            registry.addMapping("/**")
+                                    .allowedOrigins("https://portfolio-fb9ed.web.app")
+                                    .allowedMethods("*")
+                                    .allowedHeaders("*");        
+    }    
 }

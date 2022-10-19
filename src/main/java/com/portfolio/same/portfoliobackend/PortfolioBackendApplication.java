@@ -12,20 +12,6 @@ public class PortfolioBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PortfolioBackendApplication.class, args);
 	}
-        
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-            return new WebMvcConfigurer() {
-                    @Override
-                    public void addCorsMappings(CorsRegistry registry) {
-                        
-                        System.out.println("cooooooooooooooooooooors");
-                            registry.addMapping("/**")
-                                    .allowedOrigins("https://portfolio-fb9ed.web.app")
-                                    .allowedMethods("*")
-                                    .allowedHeaders("*");
-                    }
-            };
-	}        
+             
 
 }
