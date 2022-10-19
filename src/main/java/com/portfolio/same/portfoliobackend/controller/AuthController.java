@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "https://portfolio-fb9ed.firebaseapp.com")
+@CrossOrigin(origins = {"https://portfolio-fb9ed.firebaseapp.com","https://portfolio-fb9ed.web.app"})
 public class AuthController {
 
     @Autowired
