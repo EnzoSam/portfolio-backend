@@ -1,0 +1,8 @@
+com.portfolio.same.portfoliobackend
+com.portfolio.same.portfoliobackend.controller
+com.portfolio.same.portfoliobackend.dto
+com.portfolio.same.portfoliobackend.model
+com.portfolio.same.portfoliobackend.repository
+com.portfolio.same.portfoliobackend.security
+com.portfolio.same.portfoliobackend.service
+com.portfolio.same.portfoliobackend.util
